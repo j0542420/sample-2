@@ -10,76 +10,79 @@ namespace sample_2
     {
         static void Main(string[] args)
         {
-            // declaration
-            //input
-            int month = 0;
+            // Declaration
+            int month;
 
-            Console.WriteLine("Enter a number for a month (1-12)");
-            month = Convert.ToInt32(Console.ReadLine());
-            switch (month) {
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                case 7:
-                case 8:
-                case 9:
-                case 10:
-                case 11:
-                case 12:
+            Console.WriteLine("Enter a number for a month (1-12):");
 
-                case 1;
-                    Console.WriteLine("31");
-                    break;
-                case 2;
-                    Console.WriteLine("29");
-                    break;
-                case 3;
-                    Console.WriteLine("31");
-                    break;
-                case 4;
-                    Console.WriteLine("31");
-                    break;
-                case 5;
-                    Console.WriteLine("29");
-                    break;
-                case 6;
-                    Console.WriteLine("31");
-                    break;
-                case 7;
-                    Console.WriteLine("31");
-                    break;
-                case 8;
-                    Console.WriteLine("29");
-                    break;
-                case 9;
-                    Console.WriteLine("31");
-                    break;
-                case 10;
-                    Console.WriteLine("31");
-                    break;
-                case 11;
-                    Console.WriteLine("29");
-                    break;
-                case 12;
-                    Console.WriteLine("31");
-                    break;
+            // Input validation
+            if (int.TryParse(Console.ReadLine(), out month))
+            {
+                string monthName = "";
+                string daysInMonth = "";
 
-                default:
-                    Console.WriteLine("invalid input");
-                    break;
+                switch (month)
+                {
+                    case 1:
+                        monthName = "January";
+                        daysInMonth = "31 days";
+                        break;
+                    case 2:
+                        monthName = "February";
+                        daysInMonth = "28 or 29 days (leap year)";
+                        break;
+                    case 3:
+                        monthName = "March";
+                        daysInMonth = "31 days";
+                        break;
+                    case 4:
+                        monthName = "April";
+                        daysInMonth = "30 days";
+                        break;
+                    case 5:
+                        monthName = "May";
+                        daysInMonth = "31 days";
+                        break;
+                    case 6:
+                        monthName = "June";
+                        daysInMonth = "30 days";
+                        break;
+                    case 7:
+                        monthName = "July";
+                        daysInMonth = "31 days";
+                        break;
+                    case 8:
+                        monthName = "August";
+                        daysInMonth = "31 days";
+                        break;
+                    case 9:
+                        monthName = "September";
+                        daysInMonth = "30 days";
+                        break;
+                    case 10:
+                        monthName = "October";
+                        daysInMonth = "31 days";
+                        break;
+                    case 11:
+                        monthName = "November";
+                        daysInMonth = "30 days";
+                        break;
+                    case 12:
+                        monthName = "December";
+                        daysInMonth = "31 days";
+                        break;
+                    default:
+                        Console.WriteLine("Invalid input. Please enter a number between 1 and 12.");
+                        return;
+                }
+
+                // Output the result
+                Console.WriteLine($"The month is {monthName}, and it has {daysInMonth}.");
             }
-
-
-
-
-
-
-
-
-
+            else
+            {
+                Console.WriteLine("Invalid input. Please enter a valid number.");
+            }
         }
     }
 }
